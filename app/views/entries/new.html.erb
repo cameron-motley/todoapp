@@ -1,0 +1,27 @@
+<h1>Pull new Data</h1>
+
+<% if @entry.errors.any? %>
+
+<h2>The following errors prevented the entry from being saved</h2>
+<ul>
+	<% @entry.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	<% end %>
+</ul>
+<% end %>
+<%= form_for @entry do |f| %>
+<p>
+<%= f.label :name %> <br>
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :description %> <br>
+<%= f.text_area :description %>
+</p>
+
+<p>
+<%= f.submit %>
+</p>
+<% end %>
+
+
