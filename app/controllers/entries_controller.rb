@@ -16,8 +16,20 @@ class EntriesController < ApplicationController
 	def show
 		@entry = Entry.find(params[:id])
 	end
+	def edit
+		@entry = Entry.find(params[:id])
 
+	end
+	def update
+		@entry = Entry.find(params[:id])
+if @entry.update(entry_params)
+			flash[:notice]= "Entry was successfully rediscovered."
+	  	redirect_to entry_path(@entry)
+	  else
+	 		render 'edit'
 
+	 	end
+end
 
 	private
 	def entry_params
